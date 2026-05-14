@@ -15,7 +15,13 @@ public class PembeliController {
     @Autowired
     private PembeliService pembeliService;
 
-    // get semua data pembeli
+    // get data pembeli
+    @GetMapping
+    public List<Pembeli> getAll() {
+        return pembeliService.getAll();
+    }
+
+    // get pembeli berdasarkan id
     @GetMapping("/{id}")
     public ResponseEntity<Pembeli> getById(@PathVariable Integer id) {
         return pembeliService.getById(id)
